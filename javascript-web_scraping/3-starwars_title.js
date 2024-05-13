@@ -2,13 +2,13 @@
 
 const request = require('request');
 
-const movieId = process.argv[2];
+const url = (`https://swapi-api.hbtn.io/api/films/${process.argv[2]}`);
 
-request(`https://swapi-api.hbtn.io/api/films/${movieId}`, function (error, response, body) {
-  if (error) {
-    console.log(error);
+request(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
   } else {
-    const movie = JSON.parse(body);
-    console.log('Title:', movie.title);
+    const movieName = JSON.parse(body);
+    console.log(movieName.title);
   }
 });
