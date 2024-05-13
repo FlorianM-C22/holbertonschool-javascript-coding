@@ -3,14 +3,13 @@
 const request = require('request');
 const fs = require('fs');
 
-const url = (`http://loripsum.net/api/${process.argv[2]}`);
-
-request(url, function (err, response, body) {
+request(process.argv[2], function (err, reponse, body) {
   if (err) {
     console.log(err);
-  } else {
-    const writeStream = fs.createWriteStream(`${process.argv[3]}.txt`, { encoding: 'utf-8' });
-    writeStream.write(body);
-    writeStream.end();
   }
+  fs.writeFile(process.argv[3], body, 'utf8', function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
 });
