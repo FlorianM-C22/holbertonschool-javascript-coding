@@ -9,7 +9,7 @@ request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else {
-    let writeStream = fs.createWriteStream(`${process.argv[3]}.txt`, { encoding: 'utf-8' });
+    const writeStream = fs.createWriteStream(`${process.argv[3]}.txt`, { encoding: 'utf-8' });
     writeStream.write(body);
     writeStream.end();
   }
