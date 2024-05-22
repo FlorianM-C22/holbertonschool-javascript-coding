@@ -1,16 +1,15 @@
-/* eslint-disable no-undef */
-function readStdin() {
-  process.stdin.setEncoding('utf8');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-  console.log('Welcome to Holberton School, what is your name?');
-  process.stdin.on('readable', () => {
-    const read = process.stdin.read();
-    process.stdout.write(`Your name is: ${read}`);
-    process.stdout.write('This important software is now closing\n');
-    process.exit();
-  });
-}
-module.exports = readStdin;
-if (require.main === module) {
-  readStdin();
-}
+process.stdin.resume();
+
+process.stdin.on('readable', () => {
+  const name = process.stdin.read();
+
+  if (name) {
+    process.stdout.write(`Your name is: ${name}`);
+  }
+});
+
+process.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
+});
