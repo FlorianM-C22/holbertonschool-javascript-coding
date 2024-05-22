@@ -1,7 +1,6 @@
+node_modules/
 *.json
-babel.config.js
-utils.js
-.eslintrc.js
-/node_modules
+*.config.js
 *main*.js
-database.csv
+.eslintrc.js
+!package.json

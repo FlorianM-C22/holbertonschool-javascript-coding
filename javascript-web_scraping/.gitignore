@@ -1,6 +1,6 @@
-cisfun
-*.txt
+node_modules/
 *.json
-loripsum
-my_file.txt
-/node_modules
+*.config.js
+*main*.js
+.eslintrc.js
+!package.json
