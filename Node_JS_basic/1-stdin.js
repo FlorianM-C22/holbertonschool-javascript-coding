@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 function readStdin() {
   process.stdin.setEncoding('utf8');
 
