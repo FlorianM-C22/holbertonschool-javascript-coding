@@ -1,15 +1,8 @@
-/* eslint-disable no-undef */
-function welcome() {
-  process.stdout.write('Welcome to Holberton School, what is your name?\n');
+if (require.main === module) {
+  console.log('Welcome to Holberton School, what is your name?');
   process.stdin.on('data', (input) => {
     process.stdout.write(`Your name is: ${input.toString()}`);
-    process.stdout.write('This important software is now closing\n');
+    console.log('This important software is now closing');
     process.exit();
   });
-}
-
-module.exports = welcome;
-
-if (require.main === module) {
-  welcome();
 }
